@@ -186,7 +186,11 @@
 				codeFold : true
 			});
 		//表单赋值
-		$('#createDate').val(new Date());
+		// datetime-local needs "YYYY-MM-DDTHH:MM"; new Date() gives an
+		// invalid value, so the field stayed empty and saving always
+		// reported 信息不全. Pre-fill it with the current local time.
+		var _d = new Date(), _p = function(n){ return (n < 10 ? '0' : '') + n; };
+		$('#createDate').val(_d.getFullYear() + '-' + _p(_d.getMonth() + 1) + '-' + _p(_d.getDate()) + 'T' + _p(_d.getHours()) + ':' + _p(_d.getMinutes()));
 		
 		$('#WidgetCategory').val(JSON.stringify(categoryJson));
 		$('#WidgetMenu').val(JSON.stringify(menuJson));
