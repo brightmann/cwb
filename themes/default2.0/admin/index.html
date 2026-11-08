@@ -272,6 +272,10 @@
                 if ("id" in result){
                     $('#id').val(result.id);
 					$('#labelNew').text("编辑:"+result.id);
+                    //保存成功后刷新文章列表，否则新文章要到下次打开后台才出现
+                    $("#articleList tr:gt(0)").remove();
+                    $("#page").val(1);
+                    $("#loadmore").click();
                     alert(result.msg);
                 }
                 else 
