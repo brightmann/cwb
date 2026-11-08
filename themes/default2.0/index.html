@@ -132,11 +132,13 @@
 												<a href="/category/{{&.}}" rel="category tag">{{&.}}</a>
 											{{ /category }}
 											</span>
+											{{ #tags.length }}
 											<span>标签：
 											{{ #tags }}
 												<a href="/tags/{{&.}}" rel="tag">{{&.}}</a>
 											{{ /tags }}
 											</span>
+											{{ /tags.length }}
 											<span class="alignright">{{ &createDate10 }}</span></footer>
 										<!-- .entry-meta -->
 									</article>
@@ -181,6 +183,7 @@
 									{{ /widgetCategoryList }}
 								</ul>
 							</aside>
+							{{ #widgetTagsList.length }}
 							<aside id="tag_cloud-2" class="widget widget_tag_cloud">
 								<p class="widget-title">标签云</p>
 								<div class="tagcloud">
@@ -190,6 +193,7 @@
 
 								</div>
 							</aside>
+							{{ /widgetTagsList.length }}
 							<aside id="meta-2" class="widget widget_meta">
 								<p class="widget-title">链接</p>
 								<ul>

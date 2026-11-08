@@ -267,7 +267,7 @@
             dataType: "json",
             url: postURL ,//url
 			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify($("#addNewForm").serializeArray()), 
+			data: JSON.stringify($("#addNewForm").serializeArray().filter(function(f){ return !(f.name==="tags" && f.value.trim()===""); })),
             success: function (result) {
                 if ("id" in result){
                     $('#id').val(result.id);

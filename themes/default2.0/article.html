@@ -143,12 +143,14 @@
 												<a href="/category/{{&.}}" rel="category tag">{{&.}}</a>
 											{{ /articleSingle.category }}
 										</span>	
+										{{ #articleSingle.tags.length }}
 										<span>标签：
 											{{ #articleSingle.tags }}
 												<a href="/tags/{{&.}}" rel="tag">{{&.}} </a> 
 											{{ /articleSingle.tags }}
 
 										</span>
+										{{ /articleSingle.tags.length }}
 									</footer>
 									<!-- .entry-meta -->
 								</article>
@@ -192,6 +194,7 @@
 									{{ /widgetCategoryList }}
 								</ul>
 							</aside>
+							{{ #widgetTagsList.length }}
 							<aside id="tag_cloud-2" class="widget widget_tag_cloud">
 								<p class="widget-title">标签云</p>
 								<div class="tagcloud">
@@ -202,6 +205,7 @@
 
 								</div>
 							</aside>
+							{{ /widgetTagsList.length }}
 							<aside id="meta-2" class="widget widget_meta">
 								<p class="widget-title">链接</p>
 								<ul>
