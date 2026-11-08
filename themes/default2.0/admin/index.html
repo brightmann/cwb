@@ -225,6 +225,29 @@
             }
         });
     })
+    //点"新建"时清空表单，回到新增状态
+    //否则保存后表单会一直停留在刚保存那篇的编辑状态，再点"新建"还是同一篇，
+    //保存时会覆盖旧文章而不是新建一篇
+    function resetNewForm(){
+        $('#id').val('');
+        $('#title').val('');
+        $('#img').val('');
+        $('#link').val('');
+        $('#tags').val('');
+        $('#priority').val('0.5');
+        $('#changefreq').val('daily');
+        // 分类回到第一个（新建必须选一个分类）
+        var firstCat = $('#category option:first').val();
+        if (firstCat) { $('#category').selectpicker('val', [firstCat]); $('#category').selectpicker('refresh'); }
+        // 日期填当前时间
+        var _d = new Date(), _p = function(n){ return (n < 10 ? '0' : '') + n; };
+        $('#createDate').val(_d.getFullYear() + '-' + _p(_d.getMonth() + 1) + '-' + _p(_d.getDate()) + 'T' + _p(_d.getHours()) + ':' + _p(_d.getMinutes()));
+        // 清空编辑器
+        if (typeof mdEditor !== 'undefined' && mdEditor) { mdEditor.setMarkdown(''); }
+        $('#labelNew').text('新增');
+    }
+    // 点"新建"标签时清空表单
+    $('a[href="#new"]').on('click', function(){ resetNewForm(); });
     //新建文章
     function saveAddNew(){
         if(
