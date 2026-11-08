@@ -224,14 +224,11 @@
     //新建文章
     function saveAddNew(){
         if(
-            $('#WidgetMenu').val() == "" || $('#WidgetMenu').val() == null
+            $('#title').val() == "" || $('#title').val() == null
             || $('#createDate').val() == "" || $('#createDate').val() == null
-            || $('#createDate').val() == "" || $('#createDate').val() == null
-        
         ){
            alert("信息不全");
            return;
-            
         }
         var postURL = "/admin/saveEdit/";
         if ($('#id').val() == "" || $('#id').val() == null)
