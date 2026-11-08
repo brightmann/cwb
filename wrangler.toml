@@ -1,0 +1,7 @@
+name = "cwb"
+main = "index.js"
+compatibility_date = "2026-11-07"
+
+[[kv_namespaces]]
+binding = "CFBLOG"
+id = "dec9aa61fc4c4e1fa839411239fac27e"
